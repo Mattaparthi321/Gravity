@@ -1,0 +1,42 @@
+1. Install the CloudWatch Agent:
+
+For aws Linux
+use the following commands:
+   
+  sudo yum update -y
+  sudo yum install amazon-cloudwatch-agent -y
+
+
+2. Test the CloudWatch Agent:
+
+  Check if metrics are being sent to CloudWatch by going to CloudWatch > Metrics and selecting the EC2 and CWAgent namespaces.
+  Simulate High CPU Usage:
+
+  Run a CPU-intensive command on your EC2 instance to trigger the alarm.
+  bash
+
+  sudo yum install stress -y
+  stress --cpu 1 --timeout 600  # Runs a CPU stress test for 10 minutes
+
+  Check Your Email:
+
+  If CPU usage exceeds 80%, you should receive an email notification.
+  
+  
+3. Create a CloudWatch Alarm: Monitoring  Ec2 Instances
+
+   Go to the CloudWatch section in the AWS Management Console.
+   Click on Alarms > Create Alarm.
+   Select the CPUUtilization metric for your EC2 instance.
+   Click Select metric and then configure the alarm:
+   Metric Name: CPUUtilization.
+   Statistic: Average.
+   Period: 1 minute.
+   Threshold type: Static.
+   Threshold: Greater than 80.
+   Configure Actions:
+
+   Alarm state trigger: Choose In alarm.
+   Send a notification to: Choose an existing SNS topic or create a new one.
+   If creating a new topic, provide an email address for notifications.
+   Email Subscription: Confirm your subscription by clicking the link sent to your email.
