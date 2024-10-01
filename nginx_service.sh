@@ -9,3 +9,6 @@ else
     echo "Nginx Is Not running"
     service nginx start
 fi
+
+
+jaicnasnc
