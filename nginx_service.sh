@@ -10,5 +10,4 @@ else
     service nginx start
 fi
 
-
-jaicnasnc
+lolokoookolk
