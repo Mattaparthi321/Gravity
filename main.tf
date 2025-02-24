@@ -104,3 +104,7 @@ resource "aws_instance" "web_applications" {
     Name = "web_application"
   }
 }
+
+
+
+
